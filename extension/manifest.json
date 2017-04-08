@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "SelfDestruct",
-  "version": "0.0.1",
+  "name": "SelfDestruct Inactive Tabs",
+  "version": "0.0.2",
   "description": "Inactive tabs are closed automatically after 1 hour, unless you don't want them to be.",
   "browser_action": {
     "default_icon": "images/bomb.png"
