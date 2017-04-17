@@ -10,6 +10,23 @@ function log() {
 var THRESHOLD = 60 * 60 * 1000;
 // var THRESHOLD = 25 * 1000;
 
+chrome.storage.sync.get(
+  {
+    threshold: THRESHOLD
+  },
+  function(items) {
+    console.log("Threshold is ", items.threshold);
+    THRESHOLD = items.threshold * 60 * 1000;
+  }
+);
+
+chrome.storage.onChanged.addListener(function(changes, namespace) {
+  if ("threshold" in changes) {
+    console.log("Threshold is", changes.threshold);
+    THRESHOLD = changes.threshold.newValue * 60 * 1000;
+  }
+});
+
 // How often to check whether any tabs need to be closed.
 var INTERVAL = 60 * 1000;
 // var INTERVAL = 10 * 1000;
